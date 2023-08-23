@@ -1,0 +1,83 @@
+<h1 *ngIf="member">{{member.knownAs}}</h1>
+<div class="user-grid">
+  <mat-card class="right" *ngIf="member">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>
+        {{member.knownAs}}
+      </mat-card-title>
+      <mat-card-subtitle>{{member.city}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{member.photoUrl}}" alt="{{member.knownAs}}">
+    <mat-list class="engagement-options">
+      <mat-list-item class="button-options">
+        <mat-card-actions>
+          <button mat-button >
+            Like
+          </button>
+        </mat-card-actions>
+      </mat-list-item>
+      <mat-list-item class="button-options">
+        <mat-card-actions>
+          <button mat-button>Save</button>
+        </mat-card-actions>
+      </mat-list-item >
+      <mat-list-item class="button-options">
+        <mat-card-actions>
+          <button mat-button>Message</button>
+        </mat-card-actions>
+      </mat-list-item>
+    </mat-list>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item>
+          Age: {{member.age}}
+        </mat-list-item>
+        <mat-list-item>
+          Gender: {{member.gender}}
+        </mat-list-item>
+        <mat-list-item>
+          City: {{member.city}}
+        </mat-list-item>
+        <mat-list-item>
+          Country: {{member.country}}
+        </mat-list-item>
+
+      </mat-list>
+
+      <p>{{member.introduction}}</p>
+      <mat-card-header>Interests</mat-card-header>
+       <p>{{member.interests}}</p>
+
+    </mat-card-content>
+
+  </mat-card>
+  <mat-card class="left" *ngIf="member">
+
+   <mat-card-content>
+    <form #editForm="ngForm" id="editForm" (ngSubmit)="updateMember()">
+      <h4>Introduction</h4>
+      <textarea [(ngModel)]="member.introduction" name="introduction"></textarea>
+      <h4>Looking For</h4>
+      <textarea [(ngModel)]="member.interests" name="lookingFor"></textarea>
+      <h4>Interests</h4>
+      <textarea [(ngModel)]="member.interests" name="interests"></textarea>
+      <h4>Location Details: </h4>
+      <label for="city">City:</label>
+      <input type="text" [(ngModel)]="member.city" name="city">
+      <label for="country">Country:</label>
+      <input type="text" [(ngModel)]="member.country" name="country">
+      <h4>Edit Photos</h4>
+      <p>Photo will go here</p>
+      <button mat-button type="submit" [disabled]="!editForm.dirty" id="editForm">Save Changes</button>
+    </form>
+
+
+
+
+
+    </mat-card-content>
+
+  </mat-card>
+  </div>
+

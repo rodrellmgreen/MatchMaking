@@ -1,0 +1,19 @@
+<div>
+  <div *ngIf="!registerMode">
+    <h1>Find Your Match</h1>
+    <p>Sign up to find your perfect fit</p>
+    <div>
+      <button mat-button (click)="registerToggle()">Register</button>
+      <button mat-button>Learn More</button>
+
+    </div>
+  </div>
+
+  <div *ngIf="registerMode">
+    <div>
+      <div>
+        <app-register (cancelRegistration)="cancelRegistration($event)"></app-register>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+ <mat-toolbar >
+    <h1 routerLinkActive="active" routerLink="/">MatchMade</h1>
+    <ng-container *ngIf="(accountService.currentUser$ | async)">
+      <mat-list >
+        <mat-list-item class="nav-item"><a routerLink="/members" routerLinkActive="active">Matches</a></mat-list-item>
+        <mat-list-item class="nav-item"><a routerLink="/lists" routerLinkActive="active">Lists</a></mat-list-item>
+        <mat-list-item class="nav-item"><a routerLink="/messages" routerLinkActive="active">Messages</a></mat-list-item>
+        <mat-list-item class="nav-item"><a routerLink="/errors" routerLinkActive="active">Errors</a></mat-list-item>
+
+      </mat-list>
+      <button mat-button [matMenuTriggerFor]="menu" *ngIf="(accountService.currentUser$ | async) as user" >{{user.userName | titlecase}}</button>
+    </ng-container>
+
+
+<mat-menu #menu="matMenu" >
+  <button mat-menu-item routerLink="/member/edit">Edit Profile</button>
+  <button mat-menu-item (click)="logout()">Logout</button>
+</mat-menu>
+    <form *ngIf="!(accountService.currentUser$ | async)" #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off">
+      <mat-form-field>
+        <input
+        matInput
+        placeholder="username"
+        name="username"
+        [(ngModel)]="model.username"
+
+        >
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput
+        placeholder="password"
+        name="password"
+        type="password"
+        [(ngModel)]="model.password"
+        >
+      </mat-form-field>
+      <button>Login</button>
+    </form>
+
+  </mat-toolbar>
+
+

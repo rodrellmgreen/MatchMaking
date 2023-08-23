@@ -1,0 +1,22 @@
+.user-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.right {
+  max-width: 40%;
+  background-color: whitesmoke;
+
+}
+.left{
+  max-width: 40%;
+  background-color: whitesmoke;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+

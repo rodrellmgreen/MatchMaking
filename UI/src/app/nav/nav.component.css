@@ -1,0 +1,20 @@
+
+
+img {
+  max-height: 50px;
+  border: 2px solid white;
+  display: inline;
+}
+
+mat-list-item, a {
+  list-style-type: none;
+  display: inline-flex;
+  margin-right: auto;
+  text-decoration: none;
+  color: black;
+  max-width: fit-content;
+}
+mat-list{
+  margin-right:auto;
+  display: flex;
+}
